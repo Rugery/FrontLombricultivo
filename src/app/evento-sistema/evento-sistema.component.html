@@ -1,0 +1,21 @@
+<p-toast />
+<div class="contenedor_formulario">
+  <mat-form-field appearance="fill">
+    <mat-label>Anomalia o problema</mat-label>
+    <textarea matInput type="text" class="example-align" [formControl]="AnomaliaEvento"></textarea>
+    <mat-error *ngIf="AnomaliaEvento.hasError('required')">La anomalia es requerida</mat-error>
+
+  </mat-form-field>
+  <mat-form-field  appearance="fill">
+    <mat-label>Descripcion del problema en el sistema</mat-label>
+  <textarea matInput type="text" class="example-align" [formControl]=" DescripcionEvento"></textarea>
+  <mat-error *ngIf="DescripcionEvento.hasError('required')">La descripcion es requerida</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Accion a realizar frente al problema</mat-label>
+  <textarea matInput type="text" class="example-align" [formControl]="AccionEvento"></textarea>
+  <mat-error *ngIf="AccionEvento.hasError('required')">La accion realizada es requerida</mat-error>
+  </mat-form-field>
+  <button mat-fab extended  color="primary" (click)="sendValues()">Agregar al reporte</button>
+</div>
+

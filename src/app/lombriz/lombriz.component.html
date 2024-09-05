@@ -1,0 +1,81 @@
+<p-toast />
+<div class="contenedor_lombriz">
+  <mat-form-field appearance="fill">
+    <mat-label>Peso</mat-label>
+    <input matInput type="number" class="example-align" placeholder="0.00" [formControl]="peso" pattern="[0-9]+(\.[0-9]{1,2})?" >
+    <span matTextSuffix>&nbsp;&nbsp;g</span>
+    <mat-error *ngIf="peso.hasError('required')">El peso es requerido</mat-error>
+    <mat-error *ngIf="peso.hasError('min')">El peso debe ser mayor o igual a 0 g</mat-error>
+    <mat-error *ngIf="peso.hasError('max')">El peso debe ser menor o igual a 2 g</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Longitud</mat-label>
+    <input matInput type="number" class="example-align" placeholder="0.00" [formControl]="longitud" pattern="[0-9]+(\.[0-9]{1,2})?" >
+    <span matTextSuffix>&nbsp;&nbsp;cm</span>
+    <mat-error *ngIf="longitud.hasError('required')">La longitud es requerida</mat-error>
+    <mat-error *ngIf="longitud.hasError('min')">La longitud debe ser mayor o igual a 0 cm</mat-error>
+    <mat-error *ngIf="longitud.hasError('max')">La longitud debe ser menor o igual a 20 cm</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Especie</mat-label>
+    <mat-select [formControl]="especie" class="example-align">
+      <mat-option value="Lombriz roja californiana">Lombriz roja californiana</mat-option>
+      <mat-option value="Lombriz africana">Lombriz africana</mat-option>
+    </mat-select>
+    <mat-error *ngIf="especie.hasError('required')">La especie es requerida</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Etapa de reproducción</mat-label>
+    <mat-select [formControl]="reproduccion" class="example-align">
+      <mat-option value="Sí">Sí</mat-option>
+      <mat-option value="No">No</mat-option>
+    </mat-select>
+    <mat-error *ngIf="reproduccion.hasError('required')">La etapa de reproducción es requerida</mat-error>
+  </mat-form-field>
+  <div class="botones-lombriz">
+  <button mat-fab extended color="primary" (click)="almacenarLombriz()">Almacenar</button>
+  <button mat-fab extended color="accent" (click)="sendValues()">Agregar al reporte</button>
+  </div>
+  <div *ngIf="lombricesAlmacenadas.length > 0" class="lista-lombrices">
+    <h3>Lombrices almacenadas</h3>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Peso Column -->
+      <ng-container matColumnDef="peso">
+        <th mat-header-cell *matHeaderCellDef>Peso</th>
+        <td mat-cell *matCellDef="let lombriz">{{ lombriz.PesoLombriz }} g</td>
+      </ng-container>
+
+      <!-- Longitud Column -->
+      <ng-container matColumnDef="longitud">
+        <th mat-header-cell *matHeaderCellDef>Longitud</th>
+        <td mat-cell *matCellDef="let lombriz">{{ lombriz.LongitudLombriz }} cm</td>
+      </ng-container>
+
+      <!-- Especie Column -->
+      <ng-container matColumnDef="especie">
+        <th mat-header-cell *matHeaderCellDef>Especie</th>
+        <td mat-cell *matCellDef="let lombriz">{{ lombriz.EspecieLombriz }}</td>
+      </ng-container>
+
+      <!-- Etapa de reproducción Column -->
+      <ng-container matColumnDef="reproduccion">
+        <th mat-header-cell *matHeaderCellDef>Etapa de reproducción</th>
+        <td mat-cell *matCellDef="let lombriz">{{ lombriz.EtapaReprLombriz ? 'Sí' : 'No' }}</td>
+      </ng-container>
+
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let lombriz; let i = index;">
+          <button mat-button color="warn" (click)="deleteLombriz(i)">Eliminar</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

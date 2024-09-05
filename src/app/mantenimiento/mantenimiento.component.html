@@ -1,0 +1,24 @@
+<p-toast></p-toast>
+<div class="contenedor_formulario">
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo de mantenimiento</mat-label>
+    <mat-select [formControl]="TipoMantenimiento" class="example-align">
+      <mat-option value="Preventivo">Preventivo</mat-option>
+      <mat-option value="Correctivo">Correctivo</mat-option>
+      <mat-option value="Otro">Otro</mat-option>
+    </mat-select>
+
+
+
+
+
+    <mat-error *ngIf="TipoMantenimiento.hasError('required')">El tipo de mantenimiento es requerido</mat-error>
+  </mat-form-field>
+  <mat-form-field  appearance="fill">
+    <mat-label>Descripcion del mantenimiento</mat-label>
+  <textarea matInput type="text" class="example-align" [formControl]="DescMantenimiento"></textarea>
+  <mat-error *ngIf="DescMantenimiento.hasError('required')">La descrion es requerida</mat-error>
+  </mat-form-field>
+  <button mat-fab extended  color="primary" (click)="sendValues()">Agregar al reporte</button>
+</div>
+

@@ -1,0 +1,47 @@
+<p-toast />
+<div class="contenedor_formulario">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ph del sustrato</mat-label>
+    <!-- Gota de agua con valor de pH -->
+    <div class="water-drop">
+      <span class="ph-value" [ngStyle]="{'color': cubeColor}">{{ phDescription }}</span>
+    </div>
+    <input matInput type="number" class="example-align" placeholder="0.00" [formControl]="PhSustrato" pattern="[0-9]+(\.[0-9]{1,2})?">
+    <span matTextSuffix>&nbsp;&nbsp;</span>
+    <mat-error *ngIf="PhSustrato.hasError('required')">El PH es requerido</mat-error>
+    <mat-error *ngIf="PhSustrato.hasError('min')">El PH debe ser mayor o igual a 0</mat-error>
+    <mat-error *ngIf="PhSustrato.hasError('max')">El PH debe ser menor o igual a 14</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Composicion de Biomasa</mat-label>
+    <input matInput type="text" class="example-align" [formControl]="ComposSustrato">
+    <mat-error *ngIf=" ComposSustrato.hasError('required')">La composición es requerida</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Nivel de nutrientes del sustrato</mat-label>
+  <input matInput type="text" class="example-align" [formControl]="NivelSustrato">
+  <mat-error *ngIf=" NivelSustrato.hasError('required')">El nivel de nutrientes es requerido</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Temperatura</mat-label>
+    <input matInput type="number" class="example-align" placeholder="0.00" [formControl]="TempSustrato">
+    <span matTextSuffix>&nbsp;&nbsp;°C</span>
+    <mat-error *ngIf="TempSustrato.hasError('required')">La temperatura es requerida</mat-error>
+    <mat-error *ngIf="TempSustrato.hasError('min')">La temperatura debe ser mayor o igual a 0</mat-error>
+    <mat-error *ngIf="TempSustrato.hasError('max')">La temperatura debe ser menor o igual a 30 grados</mat-error>
+
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Humedad</mat-label>
+    <input matInput type="number" class="example-align" placeholder="0.00" [formControl]="HumSustrato" pattern="[0-9]+(\.[0-9]{1,2})?">
+    <span matTextSuffix>&nbsp;&nbsp;%</span>
+    <mat-error *ngIf=" HumSustrato.hasError('required')">La humedad es requerida</mat-error>
+    <mat-error *ngIf=" HumSustrato.hasError('min')">La humedad debe ser mayor o igual a 40</mat-error>
+    <mat-error *ngIf=" HumSustrato.hasError('max')">La humedad debe ser menor o igual a 100</mat-error>
+
+  </mat-form-field>
+  <button mat-fab extended  color="primary" (click)="sendValues()">Agregar al reporte</button>
+</div>
+

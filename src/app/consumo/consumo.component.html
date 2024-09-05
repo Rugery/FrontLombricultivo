@@ -1,0 +1,24 @@
+<p-toast />
+<div class="contenedor_formulario">
+  <mat-form-field  appearance="fill">
+    <mat-label>Cantidad de agua gastada</mat-label>
+    <input matInput type="number" class="example-align" placeholder="0.00" [formControl]="CantAgua" pattern="[0-9]+(\.[0-9]{1,2})?">
+    <span matTextSuffix>&nbsp;&nbsp;L</span>
+    <mat-error *ngIf="CantAgua.hasError('required')">La cantidad de agua es requerida</mat-error>
+    <mat-error *ngIf="CantAgua.hasError('min')">La cantidad de agua debe ser mayor o igual a 0</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Cantidad de energia gastada</mat-label>
+    <input matInput type="number" class="example-align" placeholder="0.00" [formControl]="CantEnergia" pattern="[0-9]+(\.[0-9]{1,2})?">
+    <span matTextSuffix>&nbsp;&nbsp;%</span>
+    <mat-error *ngIf="CantEnergia.hasError('required')">La cantidad de energia es requerida</mat-error>
+    <mat-error *ngIf="CantEnergia.hasError('min')">La cantidad de energia debe ser mayor o igual a 0</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Descripcion del Consumo</mat-label>
+    <textarea matInput type="text" class="example-align" [formControl]="DescConsumo"></textarea>
+    <mat-error *ngIf="DescConsumo.hasError('required')">La descrion es requerida</mat-error>
+  </mat-form-field>
+  <button mat-fab extended  color="primary" (click)="sendValues()">Agregar al reporte</button>
+</div>
+

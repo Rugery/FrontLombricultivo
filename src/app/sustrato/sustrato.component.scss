@@ -1,0 +1,22 @@
+.water-drop {
+  position: absolute;
+  margin-top: 20px;
+  right: 5px; /* Ajusta para alinear al final del lado derecho del input */
+  transform: translateY(-50%); /* Centra verticalmente */
+  width: 50px; /* Ajusta según sea necesario */
+  height: 80px; /* Ajusta según sea necesario */
+  margin-left: 0;
+}
+
+.water-drop-svg {
+  width: 100%;
+  height: auto;
+  fill: currentColor; /* El color se controla mediante 'background-color' en [ngStyle] */
+}
+
+.ph-value {
+  position: absolute;
+  top: 30%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%);
+}

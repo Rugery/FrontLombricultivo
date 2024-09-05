@@ -1,0 +1,20 @@
+<p-toast></p-toast>
+
+<section class="home">
+  <video #title muted autoplay loop>
+    <source src="assets/video2.mp4" type="video/mp4">
+    <track src="assets/subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+    <track src="assets/descriptions_en.vtt" kind="descriptions" srclang="en" label="English Descriptions">
+  </video>
+  <button #title class="boton" (click)="redirectToDashboard()">
+    <span>Lombricultivo</span>
+  </button>
+</section>
+
+<section class="about">
+  <h2>Software web para el registro, gestión y visualización de producción de vermicompost en el proyecto LESTOMA</h2>
+  <br>
+  <p>© 2024 GISTFA. Derechos reservados.</p>
+</section>
+
+<router-outlet></router-outlet>

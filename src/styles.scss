@@ -1,0 +1,72 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+@include mat.core();
+
+$FrontLomb-primary: mat.define-palette(mat.$green-palette, 800);
+$FrontLomb-accent: mat.define-palette(mat.$green-palette, 500);
+$FrontLomb-warn: mat.define-palette(mat.$red-palette);
+
+
+
+$FrontLomb-theme: mat.define-light-theme((
+  color: (
+    primary: $FrontLomb-primary,
+    accent: $FrontLomb-accent,
+    warn: $FrontLomb-warn,
+  ),
+  typography: mat.define-typography-config( $font-family: Lato),
+  density: 0
+));
+
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$green-palette, 800),
+    accent: mat.define-palette(mat.$green-palette, 500),
+    //warn: $FrontLomb-warn,
+  ),
+  typography: mat.define-typography-config( $font-family: Lato),
+  density: 0
+));
+
+
+
+@include mat.all-component-themes($FrontLomb-theme);
+
+
+.dark-mode {
+  @include mat.all-component-colors($dark-theme);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "Lato", sans-serif; }
+
+.contenedor_formulario{
+  margin: 40px; /* Auto margen horizontal para centrar */
+  width: 50%; /* Tamaño del contenedor al 50% del ancho de la página */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+}
+
+.mat-mdc-form-field {
+  margin: 5px;
+}
+.example-align {
+  text-align: left;
+}
+input.example-align::-webkit-outer-spin-button,
+input.example-align::-webkit-inner-spin-button {
+  display: none;
+}

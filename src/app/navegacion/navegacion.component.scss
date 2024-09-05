@@ -1,0 +1,32 @@
+.sidenav-container {
+  height: 100%;
+
+}
+
+.sidenav .mat-toolbar{
+  justify-content: center;
+  }
+
+.mat-expansion-panel-header{
+  padding-left: 0;
+
+}
+.mat-toolbar {
+  justify-content: space-between;
+}
+
+
+.vermi{
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+}
+
+.mdc-list-item--with-leading-icon .mdc-list-item__start{
+  color: #4caf50;
+}
+
+.reporte {
+  padding: 0 24px 16px;
+  display: grid;
+}

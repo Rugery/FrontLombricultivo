@@ -1,0 +1,9 @@
+<p-toast></p-toast>
+<div mat-dialog-content>
+    <p>Reportes Almacenados</p>
+    <p>{{listaReporte}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button color="primary" (click)="guardarTipoReporte()">Guardar</button>
+  </div>

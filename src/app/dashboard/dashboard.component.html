@@ -1,0 +1,27 @@
+
+<mat-card class="dashboard-container">
+
+  <mat-card-content class="chart-container">
+    <p-chart class="bar-chart" type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+  </mat-card-content>
+
+  <mat-card-content class="chart-container">
+    <p-chart class="pie-chart" type="polarArea" [data]="polarData" [options]="polarOptions"></p-chart>
+  </mat-card-content>
+
+  <mat-card-content class="chart-container-boton">
+    <button mat-fab extended color="primary"
+     (click)="exportToExcel()">
+      <mat-icon>sim_card_download</mat-icon>
+      Exportar Excel
+    </button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="line-container">
+  <mat-card-content class="">
+    <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
+  </mat-card-content>
+</mat-card>
+
+

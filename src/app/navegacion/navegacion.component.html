@@ -1,0 +1,82 @@
+<p-toast></p-toast>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+
+    <div class="vermi">
+      <img src="assets/icons/vermi.png" width="90" alt="logo">
+    </div>
+    <mat-divider></mat-divider>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle *ngIf="isSuperAdministrador()">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <a mat-list-item><mat-icon matListItemIcon>assignment</mat-icon>Generar Reporte</a>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLink="/navegacion/lombriz"><mat-icon matListItemIcon>earbuds</mat-icon>Lombriz</a>
+        <a mat-list-item routerLink="/navegacion/sustrato"><mat-icon matListItemIcon>landslide</mat-icon>Sustrato</a>
+        <a mat-list-item routerLink="/navegacion/evento-sistema"><mat-icon
+            matListItemIcon>settings_applications</mat-icon>Eventos <br>del sistema</a>
+        <a mat-list-item routerLink="/navegacion/mantenimiento"><mat-icon
+            matListItemIcon>build</mat-icon>Mantenimiento</a>
+        <a mat-list-item routerLink="/navegacion/consumo"><mat-icon matListItemIcon>water_pump</mat-icon>Consumo <br>de
+          recursos</a>
+        <br>
+        <div class="reporte">
+          <button mat-raised-button color="primary" (click)="guardar()">Guardar Reporte</button>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <a mat-list-item><mat-icon matListItemIcon>help</mat-icon>Variables de Control</a>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div *ngIf="variablesControl">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Ultima Actualizacion</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>pH:</strong> {{ variablesControl.UltimoPh }}</p>
+              <p><strong>Humedad:</strong> {{ variablesControl.UltimaHumedad }} %</p>
+              <p><strong>Temperatura:</strong> {{ variablesControl.UltimaTemperatura }} °C</p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Recomendadas</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>pH:</strong> 6.5 - 7.5 Neutro</p>
+              <p><strong>Humedad:</strong> 80 - 90 %</p>
+              <p><strong>Temperatura:</strong> 15 - 25 °C</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/navegacion/dashboard"><mat-icon matListItemIcon>dashboard</mat-icon>Dashboard</a>
+      <a mat-list-item routerLink="/navegacion/reporte"><mat-icon matListItemIcon>description</mat-icon>Reportes</a>
+      <a mat-list-item (click)="logout()" href="http://localhost:5173"><mat-icon
+          matListItemIcon>exit_to_app</mat-icon>Cerrar sesión</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <section class="home">
+        <button color="primary" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <button color="primary" routerLink="/home" mat-icon-button>
+          <mat-icon>home</mat-icon>
+        </button>
+      </section>
+      <app-theme-switch></app-theme-switch>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

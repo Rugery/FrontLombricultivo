@@ -1,0 +1,15 @@
+.contenedor_lombriz{
+  margin: 40px; /* Auto margen horizontal para centrar */
+  width: 50%; /* Tamaño del contenedor al 50% del ancho de la página */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+}
+
+.botones-lombriz{
+  display: flex;
+  justify-content: space-evenly;
+}

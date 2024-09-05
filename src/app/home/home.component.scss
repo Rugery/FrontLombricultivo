@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+}
+
+video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.home .boton {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  object-fit: cover;
+  letter-spacing: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: #00000000;
+  border: 0px;
+  padding: 10px 20px;
+  transition: .5s;
+  color: #fff;
+  border-radius: 20px;
+
+ }
+
+ .home .boton:hover {
+  color: green;
+  border: 1px solid green;
+  cursor: pointer;
+ }
+
+
+.about {
+  background: #000000;
+  position: relative;
+  z-index: 100;
+  color: white;
+
+  background-color: #333;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
