@@ -28,7 +28,7 @@ export class HomeComponent {
     } else {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Debes iniciar sesión para ingresar.' });
       setTimeout(() => {
-        window.location.href = 'http://localhost:5173';
+        window.location.href = 'http://192.168.1.8';
       }, 3000);
     }
   }

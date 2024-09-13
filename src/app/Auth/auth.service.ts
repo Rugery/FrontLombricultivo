@@ -9,7 +9,7 @@ export class AuthService {
 
   private tokenKey = 'token';
   private roleKey = 'role';
-  private apiUrl = 'http://localhost:5240/api/Lombricultivo/ObtenerRolUser';
+  private apiUrl = 'http://192.168.1.7/api/Lombricultivo/ObtenerRolUser';
   private token: string | null = null;
   private userRole: string | null = null;
 
@@ -21,7 +21,7 @@ export class AuthService {
     if (typeof localStorage !== 'undefined') {
       this.token = localStorage.getItem(this.tokenKey);
       this.userRole = localStorage.getItem(this.roleKey);
-    } 
+    }
   }
   public isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
@@ -35,7 +35,7 @@ export class AuthService {
     this.token = token;
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(this.tokenKey, token);
-    } 
+    }
   }
 
   getRole(): string | null {

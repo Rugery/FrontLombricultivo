@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReporteService {
-  apiUrl = 'http://localhost:5240/api/Lombricultivo/ListaReportes';
+  apiUrl = 'http://192.168.1.7/api/Lombricultivo/ListaReportes';
 
   constructor(private http:HttpClient) { }
 

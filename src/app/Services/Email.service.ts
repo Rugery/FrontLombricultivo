@@ -8,7 +8,7 @@ import { jwtDecode } from "jwt-decode";
 })
 export class EmailService {
 
-  private apiUrl = 'http://localhost:5240/api/Lombricultivo/EnviarCorreo';
+  private apiUrl = 'http://192.168.1.7/api/Lombricultivo/EnviarCorreo';
 
   constructor(private http: HttpClient) { }
 

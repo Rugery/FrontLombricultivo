@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PanelService {
 
-  private apiUrl = 'http://localhost:5240/api/Lombricultivo/ObtenerVariablesControl'; 
+  private apiUrl = 'http://192.168.1.7/api/Lombricultivo/ObtenerVariablesControl';
 
   constructor(private httpClient: HttpClient) { }
 

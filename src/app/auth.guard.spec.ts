@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['http://localhost:5173']);
+      this.router.navigate(['http://192.168.1.8']);
       return false;
     }
     return true;

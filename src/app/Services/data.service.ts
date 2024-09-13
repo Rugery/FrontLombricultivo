@@ -19,7 +19,7 @@ export class DataService {
   private lombrizs!: Lombriz[];
 
 
-  private apiUrl = 'http://localhost:5240/api/Lombricultivo/CrearReporte';
+  private apiUrl = 'http://192.168.1.7/api/Lombricultivo/CrearReporte';
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

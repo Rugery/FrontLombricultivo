@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DashboardService {
 
-  private apiUrl = 'http://localhost:5240/api/Lombricultivo/dashboard'; 
+  private apiUrl = 'http://192.168.1.7/api/Lombricultivo/dashboard';
 
   constructor(private httpClient: HttpClient) { }
 
